@@ -7,6 +7,13 @@
 export function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  return [...data.asteroids]
+    .sort(
+      (a, b) =>
+        data.asteroids.filter((v) => v.discoveryYear === a.discoveryYear).length -
+        data.asteroids.filter((v) => v.discoveryYear === b.discoveryYear).length
+    )
+    .pop().discoveryYear;
 }
 
 // === TEST YOURSELF ===

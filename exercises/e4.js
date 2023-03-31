@@ -5,10 +5,13 @@ import { data } from "../data/data";
 // Return example: ['name1', 'name2', ... , 'nameN']
 
 export function getPlanetsWithLowGravity(data) {
-  // Your code goes here...
+  return data.planets.reduce((acc, planet) => {
+    if (planet.gravity < 10) {
+      return [...acc, planet.name];
+    }
+    return acc;
+  }, []);
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-4"
